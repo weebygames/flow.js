@@ -379,8 +379,10 @@
           // event listener is executed two times
           // first one - original mouse click event
           // second - input.click(), input is inside domNode
-          domNode.addEventListener('click', function() {
-            input.click();
+          domNode.addEventListener('click', function (e) {
+            if (e.target === domNode) {
+              input.click();
+            }
           }, false);
         }
         if (!this.opts.singleFile && !singleFile) {
