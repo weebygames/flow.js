@@ -380,9 +380,8 @@
           // first one - original mouse click event
           // second - input.click(), input is inside domNode
           domNode.addEventListener('click', function (e) {
-            if (e.target === domNode) {
-              input.click();
-            }
+            if (e.target.tagName === 'INPUT') { return; }
+            input.click();
           }, false);
         }
         if (!this.opts.singleFile && !singleFile) {
